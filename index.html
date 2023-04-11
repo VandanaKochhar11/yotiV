@@ -19,7 +19,8 @@
         document.getElementById('face-capture-module-root'));
 
       function onSuccess(data)  {
-        console.log("data" + data);
+        console.log("data" + JSON.stringify(data));
+        console.log("data" + data.img + data.image);
         unmount();
       }
       function onError(error)  {
