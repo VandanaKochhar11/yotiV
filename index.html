@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="/vanilla/assets/" />
-        <link href="/index.css" />
-        <script src="/index.js" ></script>
-    </head>
-<body>
+  <head>
+    <title>Vanilla FCM Test</title>
+    <!-- Optional - Preload for faster loading -->
+    <link rel="preload" href="/@getyoti/react-face-capture/vanilla/index.css" as="style">
+    <link rel="stylesheet" href="/@getyoti/react-face-capture/vanilla/index.css" />
+    <script src="/@getyoti/react-face-capture/vanilla/index.js"></script>
+  </head>
+  <body>
     <div id="face-capture-module-root"></div>
     <script>
       const props = {
-        faceCaptureAssetsRootUrl: '/vanilla/assets/'
+        faceCaptureAssetsRootUrl: '/@getyoti/react-face-capture/vanilla/assets/face-capture/',
+        onSuccess: onSuccess,
+        onError: onError,
       };
-      const fcm = Yoti.FaceCaptureModule.render(props, document.getElementById('face-capture-module-root'));
+      const fcm = Yoti.FaceCaptureModule.render(props,
+        document.getElementById('face-capture-module-root'));
+
+      function onSuccess(data)  {
+        unmount();
+      }
+      function onError(error)  {
+        reload();
+      }
       function reload() {
-            fcm.reload()
+        fcm.reload()
       }
-    
       function unmount() {
-            fcm.unmount()
+        fcm.unmount()
       }
-    </script>
-</body>
+    </script> 
+  </body>
 </html>
