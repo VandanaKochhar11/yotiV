@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/index.css" />
+        <link href="/assets/face-capture/tiny_face_detector_model-shard1" />
+        <link href="/assets/face-capture/tiny_face_detector_model-weights_manifest.json" />
+        <script src="/index.js" ></script>
+    </head>
+<body>
+    <div id="face-capture-module-root"></div>
+    <script>
+      const props = {
+        faceCaptureAssetsRootUrl: '/assets/face-capture/'
+      };
+      const fcm = Yoti.FaceCaptureModule.render(props, document.getElementById('face-capture-module-root'));
+      function reload() {
+            fcm.reload()
+      }
+    
+      function unmount() {
+            fcm.unmount()
+      }
+    </script>
+</body>
+</html>
